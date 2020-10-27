@@ -86,8 +86,8 @@ const Grid = () => {
             })
         })
        
-        setTimeout(runGrid, 1000)
-    }, [])
+        setTimeout(runGrid, speed)
+    }, [speed])
 
     const clearGrid = () => {
         setGrid(gridStructure)
@@ -125,11 +125,9 @@ const Grid = () => {
                
             </div>
             <div className='bottom-buttons'>
-                <button></button>
-                <button></button>
-                <button></button>
-                <br/>
-                <button></button>
+                <button onClick={() => setSpeed(1000)}>Slow</button>
+                <button onClick={() => setSpeed(100)}> Medium</button>
+                <button onClick={() => setSpeed(50)}>Fast!!</button>
             </div>
         </div>
     )
