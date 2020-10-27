@@ -1,6 +1,27 @@
+.gridContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 4%;
+    color: white;
+}
+
+.gridContainer button {
+    width: 110px;
+    background: none;
+    color: goldenrod;
+    height: 30px;
+    border: 1px solid goldenrod;
+    border-radius: 13px;
+    transition: .3s;
+    outline: none;
+    margin: 30px;
+}
+
 .grid {
     display: grid;
-    grid-template-columns: repeat(20, 20px);
+    grid-template-columns: repeat(25, 20px);
 }
 
 .cell {
