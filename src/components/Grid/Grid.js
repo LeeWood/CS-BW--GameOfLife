@@ -24,7 +24,8 @@ const neighbors = [
 ];
 
 const Grid = () => {
-    const [grid, setGrid] = (useState(gridStructure))
+    const [grid, setGrid] = (useState(gridStructure));
+    const [running, setRunning] = useState(false);
 
     const toggleGrid = ({i, j}) => {
         setGrid(produce(grid, gridCopy => {
@@ -41,21 +42,28 @@ const Grid = () => {
         }
     }
 
+    const startGame = () => {
+        setRunning(!running);
+    }
+
     return(
-        <div className="grid">
-            {grid.map((gridRow, i) => {
-                return gridRow.map((column, j) => {
-                    return (
-                        <div 
-                          //className="cell"
-                          key = {`${i}-${j}`}
-                          onClick = {() => toggleGrid({i, j})}
-                          className = {toggleCell({i, j})}
-                        />
-                    )
-                })
-            })}
-        </div>
+        <>
+            <button onClick={startGame}>{running ? "Stop" : "Start"}</button>
+            <div className="grid">
+                {grid.map((gridRow, i) => {
+                    return gridRow.map((column, j) => {
+                        return (
+                            <div 
+                            //className="cell"
+                            key = {`${i}-${j}`}
+                            onClick = {() => toggleGrid({i, j})}
+                            className = {toggleCell({i, j})}
+                            />
+                        )
+                    })
+                })}
+            </div>
+        </>
     )
 }
 
