@@ -13,19 +13,29 @@ const gridStructure = () => {
     return gridRow;
 }
 
+const neighbors = [
+    [0, 1],
+    [0, -1],
+    [1, -1],
+    [-1, 1],
+    [-1, -1],
+    [1, 0],
+    [-1, 0]
+];
+
 const Grid = () => {
     const [grid, setGrid] = (useState(gridStructure))
 
     const toggleGrid = ({i, j}) => {
         setGrid(produce(grid, gridCopy => {
-            gridCopy[i][j] = 1;
+            gridCopy[i][j] = grid[i][j] ? 0 : 1;
         }))
     }
 
     const toggleCell = ({i, j}) => {
         let toggleBg = 'cell';
         if(grid[i][j] === 1) {
-            return toggleBg += 'toggleBg';
+            return toggleBg += 'ToggleBg';
         }else {
             return toggleBg
         }
